@@ -1,0 +1,27 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Cliente da API", "Cliente da API", "{0B1FF692-D865-4D83-A16C-3B22C82D8964}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Projeto.AngularJs", "Projeto.AngularJs\Projeto.AngularJs.csproj", "{229C08CB-45E8-4D46-A945-5CC8CC6BDA18}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{229C08CB-45E8-4D46-A945-5CC8CC6BDA18}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{229C08CB-45E8-4D46-A945-5CC8CC6BDA18}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{229C08CB-45E8-4D46-A945-5CC8CC6BDA18}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{229C08CB-45E8-4D46-A945-5CC8CC6BDA18}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{229C08CB-45E8-4D46-A945-5CC8CC6BDA18} = {0B1FF692-D865-4D83-A16C-3B22C82D8964}
+	EndGlobalSection
+EndGlobal

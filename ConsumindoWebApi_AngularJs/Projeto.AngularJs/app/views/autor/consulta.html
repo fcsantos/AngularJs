@@ -1,0 +1,50 @@
+﻿<h3>Consulta de Autor</h3>
+<hr />
+
+<div>
+    {{mensagem}}
+</div>
+
+Pesquisar:
+<input type="text" placeholder="Digite aqui" ng-model="pesquisa" />
+
+Ordenar por:
+<select ng-model="ordenacao">
+    <option value="">- Escolha uma Opção -</option>
+    <option value="IdAutor">Código</option>
+    <option value="Nome">Nome do Autor</option>
+    <option value="QtdLivros">Qtd. de Livros</option>
+</select>
+
+<br /><br />
+
+<div class="col-md-12">
+
+    <div ng-show="autores.length == 0">
+        Autor(es) não encontrado(s).
+    </div>
+
+    <table class="table table-hover" ng-init="consultar()">
+        <thead>
+            <tr>
+                <th>Código</th>
+                <th>Nome do Autor</th>
+                <th>Qtd. de Livros</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="a in autores | filter : pesquisa | orderBy : ordenacao">
+                <td>{{a.IdAutor}}</td>
+                <td>{{a.Nome}}</td>
+                <td>{{a.QtdLivros}}</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="3">
+                    Total de registros: {{(autores | filter : pesquisa).length}}
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+</div>

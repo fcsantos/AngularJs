@@ -1,0 +1,72 @@
+﻿<html ng-app="app">
+<head>
+    <title>Projeto Livreiro</title>
+
+    <!-- Folhas de estilo -->
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+    <link href="Content/bootstrap-theme.css" rel="stylesheet" />
+    <link href="Content/Site.css" rel="stylesheet" />
+
+    <!-- JavaScript -->
+    <script src="Scripts/jquery-1.9.1.js"></script>
+    <script src="Scripts/bootstrap.js"></script>
+
+    <!-- Angular CORE -->
+    <script src="Scripts/angular.js"></script>
+    <!-- Angular ROUTE (mapeamento de SPA) -->
+    <script src="Scripts/angular-route.js"></script>
+
+    <!-- Modulo Angular.. -->
+    <script src="app/app.js"></script>
+    <script src="app/controllers/autor/cadastro-controller.js"></script>
+    <script src="app/controllers/autor/consulta-controller.js"></script>
+    <script src="app/controllers/editora/cadastro-controller.js"></script>
+    <script src="app/controllers/editora/consulta-controller.js"></script>
+    <script src="app/controllers/livro/cadastro-controller.js"></script>
+    <script src="app/controllers/livro/consulta-controller.js"></script>
+</head>
+<body class="container">
+    <!-- MENU DO SISTEMA -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li><a href="/">Página inicial</a></li>
+                    <li class="dropdown">
+                        <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Manter Autores <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#autor/cadastro">Cadastrar Autor</a></li>
+                            <li><a href="#autor/consulta">Consultar Autor</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Manter Editoras <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#editora/cadastro">Cadastrar Editora</a></li>
+                            <li><a href="#editora/consulta">Consultar Editora</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Manter Livros <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#livro/cadastro">Cadastrar Livro</a></li>
+                            <li><a href="#livro/consulta">Consultar Livro</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- TOPO DO SISTEMA -->
+    <div class="well" style="margin-top: 50px;">
+        <h2>Projeto Livreiro</h2>
+    </div>
+    <!-- CONTEUDO -->
+    <div class="col-md-12">
+        <div ng-view></div>
+    </div>
+    <!--<div class="footer">
+        <div ng-include="'footer.html'"></div>
+    </div>-->
+</body>
+</html>

@@ -1,0 +1,52 @@
+﻿<h3>Cadastro de Livro</h3>
+<hr />
+
+<div>
+    {{mensagem}}
+</div>
+<br />
+<div class="col-md-5">
+
+    <label>Titulo:</label>
+    <input type="text" class="form-control" ng-model="model.Titulo" />
+    <br />
+
+    <label>ISBN:</label>
+    <input type="text" class="form-control" ng-model="model.ISBN" maxlength="13" />
+    <br />
+
+    <label>Genero:</label>
+    <input type="text" class="form-control" ng-model="model.Genero" />
+    <br />
+
+    <label>Sinopse:</label>
+    <input type="text" class="form-control" ng-model="model.Sinopse" />
+    <br />
+
+    <label>Categoria:</label>
+    <input type="text" class="form-control" ng-model="model.Categoria" />
+    <br />
+
+    <label>Selecione o Autor:</label>
+    <select class="form-control" ng-init="obter_autores()" ng-model="model.AutorId">
+        <option value="">- Escolha uma Opção -</option>
+        <option ng-repeat="a in autores" value="{{a.IdAutor}}">
+            {{a.Nome}}
+        </option>
+    </select>
+    <br />
+
+    <label>Selecione a Editora:</label>
+    <select class="form-control" ng-init="obter_editoras()" ng-model="model.EditoraId">
+        <option value="">- Escolha uma Opção -</option>
+        <option ng-repeat="e in editoras" value="{{e.IdEditora}}">
+            {{e.Nome}}
+        </option>
+    </select>
+    <br />
+
+    <button class="btn btn-primary" ng-click="cadastrar()">
+        Cadastrar Livro
+    </button>
+
+</div>

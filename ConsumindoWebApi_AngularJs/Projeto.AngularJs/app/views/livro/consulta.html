@@ -1,0 +1,136 @@
+﻿<h3>Consulta de Livro</h3>
+<hr />
+
+<div>
+    {{mensagem}}
+</div>
+
+Pesquisar:
+<input type="text" placeholder="Digite aqui" ng-model="pesquisa" />
+
+Ordenar por:
+<select ng-model="ordenacao">
+    <option value="">- Escolha uma Opção -</option>
+    <option value="IdEditora">Código</option>
+    <option value="Nome">Nome da Editora</option>
+    <option value="QtdLivrosPublicados">Qtd. de Livros Publicados</option>
+</select>
+
+<br /><br />
+
+<div class="col-md-12">
+
+    <div ng-show="livros.length == 0">
+        Livro(s) não encontrado(s).
+    </div>
+
+    <table class="table table-hover" ng-init="consultar()">
+        <thead>
+            <tr>
+                <th>Código</th>
+                <th>Título</th>
+                <th>ISBN</th>
+                <th>Gênero</th>
+                <th>Sinopse</th>                
+                <th>Nome do Autor</th>
+                <th>Nome da Editora</th>
+                <th>Categoria</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="l in livros | filter : pesquisa | orderBy : ordenacao">
+                <td>{{l.IdLivro}}</td>
+                <td>{{l.Titulo}}</td>
+                <td>{{l.ISBN}}</td>
+                <td>{{l.Genero}}</td>
+                <td>{{l.Sinopse}}</td>                
+                <td>{{l.NomeAutor}}</td>
+                <td>{{l.NomeEditora}}</td>
+                <td>{{l.Categoria}}</td>
+                <td>
+                    <button class="btn btn-danger btn-sm" ng-click="excluir(l.IdLivro)">
+                        Excluir
+                    </button>
+                </td>
+                <td>
+                    <button class="btn btn-primary btn-sm" data-target="#janela" data-toggle="modal" ng-click="abrir(l.IdLivro)">
+                        Abrir
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="8">
+                    Total de registros: {{livros.length}}
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+
+</div>
+
+<div class="modal fade" id="janela">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-primary">
+                <h3>Atualizar dados do Livro</h3>
+            </div>
+            <div class="modal-body">
+                {{AutorId}}
+                <label>Código do Livro:</label>
+                <input type="text" class="form-control" ng-model="LivroId" />
+                <br />
+
+                <label>Titulo:</label>
+                <input type="text" class="form-control" ng-model="Titulo" />
+                <br />
+
+                <label>ISBN:</label>
+                <input type="text" class="form-control" ng-model="ISBN" />
+                <br />
+
+                <label>Genero:</label>
+                <input type="text" class="form-control" ng-model="Genero" />
+                <br />
+
+                <label>Sinopse:</label>
+                <input type="text" class="form-control" ng-model="Sinopse" />
+                <br />
+
+                <label>Categoria:</label>
+                <input type="text" class="form-control" ng-model="Categoria" />
+                <br />
+                
+                <div ng-controller="livro-cadastro-controller">
+                    <label>Selecione o Autor:</label>
+                    <select class="form-control" ng-init="obter_autores()" ng-model="AutorId">
+                        <option value="">- Escolha uma Opção -</option>
+                        <option ng-repeat="a in autores" value="{{a.IdAutor}}">
+                            {{a.Nome}}
+                        </option>
+                    </select>
+                    <br />
+
+                    <label>Selecione a Editora:</label>
+                    <select class="form-control" ng-init="obter_editoras()" ng-model="EditoraId">
+                        <option value="">- Escolha uma Opção -</option>
+                        <option ng-repeat="e in editoras" value="{{e.IdEditora}}">
+                            {{e.Nome}}
+                        </option>
+                    </select>
+                </div>
+
+                <br />
+
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-success" ng-click="atualizar()" data-dismiss="modal">
+                    Atualizar dados
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
