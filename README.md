@@ -2,4 +2,4 @@
 
 Em andamento
 
-Consumindo WebApi do exemplo 2 com AngularJs 1.5, Bootstrap 3 e SPA(Single Page Application).
+Consumindo WebApi do "WebApi-exemplo2" com AngularJs 1.5, Bootstrap 3 e SPA(Single Page Application).
