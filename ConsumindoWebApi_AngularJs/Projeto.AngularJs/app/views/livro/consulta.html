@@ -4,26 +4,33 @@
 <div>
     {{mensagem}}
 </div>
-
-Pesquisar:
-<input type="text" placeholder="Digite aqui" ng-model="pesquisa" />
-
-Ordenar por:
-<select ng-model="ordenacao">
-    <option value="">- Escolha uma Opção -</option>
-    <option value="IdEditora">Código</option>
-    <option value="Nome">Nome da Editora</option>
-    <option value="QtdLivrosPublicados">Qtd. de Livros Publicados</option>
-</select>
+<div class="container">
+    <div class="row">
+        <div class="form-inline">
+            <div class="form-group">
+                Pesquisar:
+                <input type="text" class="form-control" placeholder="Digite aqui" ng-model="pesquisa" />
+            </div>
+            <div class="form-group">
+                Ordenar por:
+                <select class="form-control" ng-model="ordenacao">
+                    <option value="">- Escolha uma Opção -</option>
+                    <option value="IdEditora">Código</option>
+                    <option value="Nome">Nome da Editora</option>
+                    <option value="QtdLivrosPublicados">Qtd. de Livros Publicados</option>
+                </select>
+            </div>
+        </div>
+    </div>
+</div>
 
 <br /><br />
 
-<div class="col-md-12">
+<div ng-show="livros.length == 0">
+    Livro(s) não encontrado(s).
+</div>
 
-    <div ng-show="livros.length == 0">
-        Livro(s) não encontrado(s).
-    </div>
-
+<div class="col-md-12" ng-show="livros.length > 0">
     <table class="table table-hover" ng-init="consultar()">
         <thead>
             <tr>
@@ -31,7 +38,7 @@ Ordenar por:
                 <th>Título</th>
                 <th>ISBN</th>
                 <th>Gênero</th>
-                <th>Sinopse</th>                
+                <th>Sinopse</th>
                 <th>Nome do Autor</th>
                 <th>Nome da Editora</th>
                 <th>Categoria</th>
@@ -45,7 +52,7 @@ Ordenar por:
                 <td>{{l.Titulo}}</td>
                 <td>{{l.ISBN}}</td>
                 <td>{{l.Genero}}</td>
-                <td>{{l.Sinopse}}</td>                
+                <td>{{l.Sinopse}}</td>
                 <td>{{l.NomeAutor}}</td>
                 <td>{{l.NomeEditora}}</td>
                 <td>{{l.Categoria}}</td>
@@ -69,7 +76,6 @@ Ordenar por:
             </tr>
         </tfoot>
     </table>
-
 </div>
 
 <div class="modal fade" id="janela">
@@ -103,12 +109,12 @@ Ordenar por:
                 <label>Categoria:</label>
                 <input type="text" class="form-control" ng-model="Categoria" />
                 <br />
-                
+
                 <div ng-controller="livro-cadastro-controller">
                     <label>Selecione o Autor:</label>
                     <select class="form-control" ng-init="obter_autores()" ng-model="AutorId">
                         <option value="">- Escolha uma Opção -</option>
-                        <option ng-repeat="a in autores" value="{{a.IdAutor}}">
+                        <option ng-repeat="a in autores" value="{{a.AutorId}}">
                             {{a.Nome}}
                         </option>
                     </select>
@@ -117,7 +123,7 @@ Ordenar por:
                     <label>Selecione a Editora:</label>
                     <select class="form-control" ng-init="obter_editoras()" ng-model="EditoraId">
                         <option value="">- Escolha uma Opção -</option>
-                        <option ng-repeat="e in editoras" value="{{e.IdEditora}}">
+                        <option ng-repeat="e in editoras" value="{{e.EditoraId}}">
                             {{e.Nome}}
                         </option>
                     </select>

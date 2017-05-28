@@ -4,27 +4,34 @@
 <div>
     {{mensagem}}
 </div>
-
-Pesquisar:
-<input type="text" placeholder="Digite aqui" ng-model="pesquisa" />
-
-Ordenar por:
-<select ng-model="ordenacao">
-    <option value="">- Escolha uma Opção -</option>
-    <option value="IdEditora">Código</option>
-    <option value="Nome">Nome da Editora</option>
-    <option value="QtdLivrosPublicados">Qtd. de Livros Publicados</option>
-</select>
+<div class="container">
+    <div class="row">
+        <div class="form-inline">
+            <div class="form-group">
+                Pesquisar:
+                <input type="text" class="form-control" placeholder="Digite aqui" ng-model="pesquisa" />
+            </div>
+            <div class="form-group">
+                Ordenar por:
+                <select class="form-control" ng-model="ordenacao">
+                    <option value="">- Escolha uma Opção -</option>
+                    <option value="IdEditora">Código</option>
+                    <option value="Nome">Nome da Editora</option>
+                    <option value="QtdLivrosPublicados">Qtd. de Livros Publicados</option>
+                </select>
+            </div>
+        </div>
+    </div>
+</div>
 
 <br /><br />
 
-<div class="col-md-12">
+<div ng-show="editoras.length == 0">
+    Editora(s) não encontrada(s).
+</div>
 
-    <div ng-show="editoras.length == 0">
-        Editora(s) não encontrada(s).
-    </div>
-
-    <table class="table table-hover" ng-init="consultar()">
+<div class="table-hover" ng-show="editoras.length > 0">
+    <table class="table" ng-init="consultar()">
         <thead>
             <tr>
                 <th>Código</th>

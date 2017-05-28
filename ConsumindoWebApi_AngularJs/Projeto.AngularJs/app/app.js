@@ -4,7 +4,8 @@
 var app = angular.module('app', ['ngRoute']);
 
 //variavel para definir o dominio da api de serviços..
-var url = "http://localhost:51558/";
+//var url = "http://localhost:51558/";
+var url = "http://apilivreiro.azurewebsites.net/";
 
 //configurar as rotas..
 app.config
@@ -13,42 +14,42 @@ app.config
         //$routeProvider -> objeto do angular para mapear rotas..
         $routeProvider
             .when(
-                '/autor/cadastro', //rota na URL..
+                '/autorCadastro', //rota na URL..
                 {
                     templateUrl: 'app/views/autor/cadastro.html',
                     controller: 'autor-cadastro-controller'
                 }
             )
             .when(
-                '/autor/consulta', //rota na URL..
+                '/autorConsulta', //rota na URL..
                 {
                     templateUrl: 'app/views/autor/consulta.html',
                     controller: 'autor-consulta-controller'
                 }
             )
             .when(
-                '/editora/cadastro', //rota na URL..
+                '/editoraCadastro', //rota na URL..
                 {
                     templateUrl: 'app/views/editora/cadastro.html',
                     controller: 'editora-cadastro-controller'
                 }
             )
             .when(
-                '/editora/consulta', //rota na URL..
+                '/editoraConsulta', //rota na URL..
                 {
                     templateUrl: 'app/views/editora/consulta.html',
                     controller: 'editora-consulta-controller'
                 }
             )
             .when(
-                '/livro/cadastro', //rota na URL..
+                '/livroCadastro', //rota na URL..
                 {
                     templateUrl: 'app/views/livro/cadastro.html',
                     controller: 'livro-cadastro-controller'
                 }
             )
             .when(
-                '/livro/consulta', //rota na URL..
+                '/livroConsulta', //rota na URL..
                 {
                     templateUrl: 'app/views/livro/consulta.html',
                     controller: 'livro-consulta-controller'

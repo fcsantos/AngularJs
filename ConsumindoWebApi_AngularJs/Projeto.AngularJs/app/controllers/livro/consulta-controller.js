@@ -6,7 +6,7 @@
             $http.get(url + "api/livro/listar")
                 .success(
                     function (d) {
-                        $scope.livros = d;
+                        $scope.livros = d;                                                    
                     }
                 )
                 .error(
@@ -46,8 +46,8 @@
                         $scope.Genero = d.Genero;
                         $scope.Sinopse = d.Sinopse;
                         $scope.Categoria = d.Categoria;
-                        $scope.AutorId = d.IdAutor;
-                        $scope.EditoraId = d.IdEditora;
+                        $scope.AutorId = d.AutorId;
+                        $scope.EditoraId = d.EditoraId;
                     }
                 )
                 .error(
@@ -72,5 +72,6 @@
                     }
                 );
         }
+
     }
 );
