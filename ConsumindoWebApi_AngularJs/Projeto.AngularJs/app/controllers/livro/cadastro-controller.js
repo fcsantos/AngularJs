@@ -17,6 +17,9 @@
                 );
         }
 
+        //inicializando combo autor
+        $scope.obter_autores();
+
         //função para trazer as editoras da api..
         $scope.obter_editoras = function () {
             $http.get(url + "api/editora/listar")
@@ -31,6 +34,9 @@
                     }
                 );
         }
+
+        //inicializando combo editora
+        $scope.obter_editoras();
 
         //função de cadastro..
         $scope.cadastrar = function () {

@@ -4,49 +4,77 @@
 <div>
     {{mensagem}}
 </div>
+
 <br />
-<div class="col-md-5">
 
-    <label>Titulo:</label>
-    <input type="text" class="form-control" ng-model="model.Titulo" />
-    <br />
+<div class="container">
 
-    <label>ISBN:</label>
-    <input type="text" class="form-control" ng-model="model.ISBN" maxlength="13" />
-    <br />
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="form-group">
+                <label>Titulo:</label>
+                <input type="text" class="form-control" placeholder="Título" ng-model="model.Titulo" />
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="form-group">
+                <label>ISBN:</label>
+                <input type="text" class="form-control" placeholder="ISBN" ng-model="model.ISBN" maxlength="13" />
+            </div>
+        </div>
+    </div>
 
-    <label>Genero:</label>
-    <input type="text" class="form-control" ng-model="model.Genero" />
-    <br />
-
-    <label>Sinopse:</label>
-    <input type="text" class="form-control" ng-model="model.Sinopse" />
-    <br />
-
-    <label>Categoria:</label>
-    <input type="text" class="form-control" ng-model="model.Categoria" />
-    <br />
-
-    <label>Selecione o Autor:</label>
-    <select class="form-control" ng-init="obter_autores()" ng-model="model.AutorId">
-        <option value="">- Escolha uma Opção -</option>
-        <option ng-repeat="a in autores" value="{{a.IdAutor}}">
-            {{a.Nome}}
-        </option>
-    </select>
-    <br />
-
-    <label>Selecione a Editora:</label>
-    <select class="form-control" ng-init="obter_editoras()" ng-model="model.EditoraId">
-        <option value="">- Escolha uma Opção -</option>
-        <option ng-repeat="e in editoras" value="{{e.IdEditora}}">
-            {{e.Nome}}
-        </option>
-    </select>
-    <br />
-
-    <button class="btn btn-primary" ng-click="cadastrar()">
-        Cadastrar Livro
-    </button>
-
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="form-group">
+                <label>Genero:</label>
+                <input type="text" class="form-control" placeholder="Gênero" ng-model="model.Genero" />
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="form-group">
+                <label>Categoria:</label>
+                <input type="text" class="form-control" placeholder="Categoria" ng-model="model.Categoria" />
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="form-group">
+                <label>Selecione o Autor:</label>
+                <select class="form-control" ng-init="obter_autores()" ng-model="model.AutorId">
+                    <option value="">- Escolha uma Opção -</option>
+                    <option ng-repeat="a in autores" value="{{a.IdAutor}}">
+                        {{a.Nome}}
+                    </option>
+                </select>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="form-group">
+                <label>Selecione a Editora:</label>
+                <select class="form-control" ng-init="obter_editoras()" ng-model="model.EditoraId">
+                    <option value="">- Escolha uma Opção -</option>
+                    <option ng-repeat="e in editoras" value="{{e.IdEditora}}" ng-selected="">
+                        {{e.Nome}}
+                    </option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="form-group">
+                <label>Sinopse:</label>
+                <textarea class="form-control" placeholder="Sinopse" rows="3" ng-model="model.Sinopse"></textarea>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <button class="btn btn-primary" ng-click="cadastrar()">
+                Cadastrar Livro
+            </button>
+        </div>
+    </div>
 </div>

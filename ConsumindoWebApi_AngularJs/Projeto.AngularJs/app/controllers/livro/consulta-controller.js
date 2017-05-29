@@ -40,14 +40,9 @@
                 .success(
                     function (d) {
 
-                        $scope.LivroId = d.IdLivro;
-                        $scope.Titulo = d.Titulo;
-                        $scope.ISBN = d.ISBN;
-                        $scope.Genero = d.Genero;
-                        $scope.Sinopse = d.Sinopse;
-                        $scope.Categoria = d.Categoria;
-                        $scope.AutorId = d.AutorId;
-                        $scope.EditoraId = d.EditoraId;
+                        $scope.upModel = {IdLivro: d.IdLivro, Titulo: d.Titulo, ISBN: d.ISBN,
+                                           Genero: d.Genero, Sinopse: d.Sinopse, Categoria: d.Categoria,
+                                           AutorId: d.AutorId, EditoraId: d.EditoraId}
                     }
                 )
                 .error(
@@ -59,7 +54,7 @@
 
         $scope.atualizar = function () {
 
-            $http.put(url + "api/livro/atualizar", $scope.model)
+            $http.put(url + "api/livro/atualizar", $scope.upModel)
                 .success(
                     function (d) {
                         $scope.mensagem = d;

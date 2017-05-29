@@ -84,48 +84,41 @@
             <div class="modal-header bg-primary">
                 <h3>Atualizar dados do Livro</h3>
             </div>
-            <div class="modal-body">
-                {{AutorId}}
+            <div class="modal-body">                
                 <label>Código do Livro:</label>
-                <input type="text" class="form-control" ng-model="LivroId" />
+                <input type="text" class="form-control" ng-model="upModel.IdLivro" />
                 <br />
 
                 <label>Titulo:</label>
-                <input type="text" class="form-control" ng-model="Titulo" />
+                <input type="text" class="form-control" ng-model="upModel.Titulo" />
                 <br />
 
                 <label>ISBN:</label>
-                <input type="text" class="form-control" ng-model="ISBN" />
+                <input type="text" class="form-control" ng-model="upModel.ISBN" />
                 <br />
 
                 <label>Genero:</label>
-                <input type="text" class="form-control" ng-model="Genero" />
+                <input type="text" class="form-control" ng-model="upModel.Genero" />
                 <br />
 
                 <label>Sinopse:</label>
-                <input type="text" class="form-control" ng-model="Sinopse" />
+                <input type="text" class="form-control" ng-model="upModel.Sinopse" />
                 <br />
 
                 <label>Categoria:</label>
-                <input type="text" class="form-control" ng-model="Categoria" />
+                <input type="text" class="form-control" ng-model="upModel.Categoria" />
                 <br />
 
                 <div ng-controller="livro-cadastro-controller">
                     <label>Selecione o Autor:</label>
-                    <select class="form-control" ng-init="obter_autores()" ng-model="AutorId">
+                    <select class="form-control" ng-model="upModel.AutorId" ng-options="a.IdAutor as a.Nome for a in autores">
                         <option value="">- Escolha uma Opção -</option>
-                        <option ng-repeat="a in autores" value="{{a.AutorId}}">
-                            {{a.Nome}}
-                        </option>
                     </select>
                     <br />
 
                     <label>Selecione a Editora:</label>
-                    <select class="form-control" ng-init="obter_editoras()" ng-model="EditoraId">
+                    <select class="form-control" ng-model="upModel.EditoraId" ng-options="e.IdEditora as e.Nome for e in editoras">
                         <option value="">- Escolha uma Opção -</option>
-                        <option ng-repeat="e in editoras" value="{{e.EditoraId}}">
-                            {{e.Nome}}
-                        </option>
                     </select>
                 </div>
 
