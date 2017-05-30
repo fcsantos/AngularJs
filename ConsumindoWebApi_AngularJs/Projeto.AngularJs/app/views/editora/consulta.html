@@ -4,6 +4,9 @@
 <div>
     {{mensagem}}
 </div>
+
+<br />
+
 <div class="container">
     <div class="row">
         <div class="form-inline">
@@ -37,6 +40,8 @@
                 <th>Código</th>
                 <th>Nome da Editora</th>
                 <th>Qtd. de Livros Publicados</th>
+                <th></th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -44,6 +49,16 @@
                 <td>{{e.IdEditora}}</td>
                 <td>{{e.Nome}}</td>
                 <td>{{e.QtdLivrosPublicados}}</td>
+                <td>
+                    <button class="btn btn-danger btn-sm" ng-click="excluir(e.IdEditora)">
+                        Excluir
+                    </button>
+                </td>
+                <td>
+                    <button class="btn btn-primary btn-sm" data-target="#janela" data-toggle="modal" ng-click="abrir(e.IdEditora)">
+                        Abrir
+                    </button>
+                </td>
             </tr>
         </tbody>
         <tfoot>
@@ -54,4 +69,24 @@
             </tr>
         </tfoot>
     </table>
+</div>
+
+<div class="modal fade" id="janela">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-primary">
+                <h3>Atualizar dados da Editora: {{upModel.IdEditora}}</h3>
+            </div>
+            <div class="modal-body">
+                <label>Nome da Editora:</label>
+                <input type="text" class="form-control" placeholder="Nome da Editora" ng-model="upModel.Nome" />
+                <br />
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-success" ng-click="atualizar()" data-dismiss="modal">
+                    Atualizar dados
+                </button>
+            </div>
+        </div>
+    </div>
 </div>

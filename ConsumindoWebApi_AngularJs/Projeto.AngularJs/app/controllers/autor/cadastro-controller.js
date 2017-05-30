@@ -14,13 +14,13 @@
             $http.post(url + "api/autor/cadastro", $scope.model)
                 .success(//retorno do tipo HTTP OK (200)
                     function (d) { //d -> mensagem
-                        $scope.mensagem = d;
+                        $scope.mensagem = swal("Good job!", d, "success");;
                         $scope.model = {}; //limpar a model..
                     }
                 )
                 .error(//qualquer status diferente de 200
                     function (e, s) { //e -> mensagem, s -> status
-                        $scope.mensagem = "Erro: " + s + " -> " + e;
+                        $scope.mensagem = sweetAlert("Oops...", +s + " -> " + e, "error");
                     }
                 );
         }

@@ -6,32 +6,36 @@
             $http.get(url + "api/livro/listar")
                 .success(
                     function (d) {
-                        $scope.livros = d;                                                    
+                        $scope.livros = d;
                     }
                 )
                 .error(
                     function (e, s) {
-                        $scope.mensagem = "Erro: " + s + " -> " + e;
+                        $scope.mensagem = sweetAlert("Oops...", +s + " -> " + e, "error");
                     }
                 );
         }
 
         $scope.excluir = function (id) {
-            if (window.confirm('Deseja excluir este Livro?')) {
-
+            swal({
+                title: "Deseja excluir este Livro?", text: "", type: "warning",
+                showCancelButton: true, confirmButtonColor: "#DD6B55",
+                confirmButtonText: "OK", closeOnConfirm: false
+            },
+            function () {
                 $http.delete(url + "api/livro/excluir?id=" + id)
-                    .success(
-                        function (d) {
-                            $scope.mensagem = d;
-                            $scope.consultar();
-                        }
-                    )
-                    .error(
-                        function (e, s) {
-                            $scope.mensagem = "Erro: " + s + " -> " + e;
-                        }
-                    );
-            }
+	            .success(
+		            function (d) {
+		                $scope.mensagem = swal("Deleted!", d, "success");
+		                $scope.consultar();
+		            }
+	            )
+	            .error(
+		            function (e, s) {
+		                $scope.mensagem = sweetAlert("Oops...", +s + " -> " + e, "error");
+		            }
+	            );
+            });
         }
 
         $scope.abrir = function (id) {
@@ -40,14 +44,16 @@
                 .success(
                     function (d) {
 
-                        $scope.upModel = {IdLivro: d.IdLivro, Titulo: d.Titulo, ISBN: d.ISBN,
-                                           Genero: d.Genero, Sinopse: d.Sinopse, Categoria: d.Categoria,
-                                           AutorId: d.AutorId, EditoraId: d.EditoraId}
+                        $scope.upModel = {
+                            IdLivro: d.IdLivro, Titulo: d.Titulo, ISBN: d.ISBN,
+                            Genero: d.Genero, Sinopse: d.Sinopse, Categoria: d.Categoria,
+                            AutorId: d.AutorId, EditoraId: d.EditoraId
+                        }
                     }
                 )
                 .error(
                     function (e, s) {
-                        $scope.mensagem = "Erro: " + s + " -> " + e;
+                        $scope.mensagem = sweetAlert("Oops...", +s + " -> " + e, "error");
                     }
                 );
         }
@@ -57,16 +63,15 @@
             $http.put(url + "api/livro/atualizar", $scope.upModel)
                 .success(
                     function (d) {
-                        $scope.mensagem = d;
+                        $scope.mensagem = swal("Good job!", d, "success");;
                         $scope.consultar();
                     }
                 )
                 .error(
                     function (e, s) {
-                        $scope.mensagem = "Erro: " + s + " -> " + e;
+                        $scope.mensagem = sweetAlert("Oops...", +s + " -> " + e, "error");
                     }
                 );
         }
-
     }
 );

@@ -1,6 +1,9 @@
 ﻿app.controller(
     'livro-cadastro-controller',
     function ($scope, $http) {
+        /* $scope -> objeto para comunicar conteudo com a página.. 
+           $http -> acessar serviços de APIs (post, get, etc...) 
+        */
 
         //função para trazer os autores da api..
         $scope.obter_autores = function () {
@@ -12,7 +15,7 @@
                 )
                 .error(
                     function (e, s) {
-                        $scope.mensagem = "Erro: " + s + " -> " + e;
+                        $scope.mensagem = sweetAlert("Oops...", +s + " -> " + e, "error");
                     }
                 );
         }
@@ -30,7 +33,7 @@
                 )
                 .error(
                     function (e, s) {
-                        $scope.mensagem = "Erro: " + s + " -> " + e;
+                        $scope.mensagem = sweetAlert("Oops...", +s + " -> " + e, "error");
                     }
                 );
         }
@@ -46,9 +49,9 @@
             //requisição POST ao serviço..
             $http.post(url + "api/livro/cadastrar", $scope.model)
                 .success( //retorno do tipo HTTP OK (200)
-                    function (d) { //d -> mensagem
-                        $scope.mensagem = d;
+                    function (d) { //d -> mensagem                        
                         $scope.model = {}; //limpar a model..
+                        $scope.mensagem = swal("Good job!", d, "success");
                         //recarregar os campos select
                         $scope.obter_autores();
                         $scope.obter_editoras();
@@ -56,7 +59,7 @@
                 )
                 .error( //qualquer status diferente de 200
                     function (e, s) { //e -> mensagem, s -> status
-                        $scope.mensagem = "Erro: " + s + " -> " + e;
+                        $scope.mensagem = sweetAlert("Oops...", + s + " -> " + e, "error");
                     }
                 );
         }

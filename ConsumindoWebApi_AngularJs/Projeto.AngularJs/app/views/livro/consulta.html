@@ -4,6 +4,9 @@
 <div>
     {{mensagem}}
 </div>
+
+<br />
+
 <div class="container">
     <div class="row">
         <div class="form-inline">
@@ -30,8 +33,8 @@
     Livro(s) não encontrado(s).
 </div>
 
-<div class="col-md-12" ng-show="livros.length > 0">
-    <table class="table table-hover" ng-init="consultar()">
+<div class="table-hover" ng-show="livros.length > 0">
+    <table class="table" ng-init="consultar()">
         <thead>
             <tr>
                 <th>Código</th>
@@ -82,48 +85,66 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header bg-primary">
-                <h3>Atualizar dados do Livro</h3>
+                <h3>Atualizar dados do Livro: {{upModel.IdLivro}}</h3>
             </div>
-            <div class="modal-body">                
-                <label>Código do Livro:</label>
-                <input type="text" class="form-control" ng-model="upModel.IdLivro" />
-                <br />
-
-                <label>Titulo:</label>
-                <input type="text" class="form-control" ng-model="upModel.Titulo" />
-                <br />
-
-                <label>ISBN:</label>
-                <input type="text" class="form-control" ng-model="upModel.ISBN" />
-                <br />
-
-                <label>Genero:</label>
-                <input type="text" class="form-control" ng-model="upModel.Genero" />
-                <br />
-
-                <label>Sinopse:</label>
-                <input type="text" class="form-control" ng-model="upModel.Sinopse" />
-                <br />
-
-                <label>Categoria:</label>
-                <input type="text" class="form-control" ng-model="upModel.Categoria" />
-                <br />
-
-                <div ng-controller="livro-cadastro-controller">
-                    <label>Selecione o Autor:</label>
-                    <select class="form-control" ng-model="upModel.AutorId" ng-options="a.IdAutor as a.Nome for a in autores">
-                        <option value="">- Escolha uma Opção -</option>
-                    </select>
-                    <br />
-
-                    <label>Selecione a Editora:</label>
-                    <select class="form-control" ng-model="upModel.EditoraId" ng-options="e.IdEditora as e.Nome for e in editoras">
-                        <option value="">- Escolha uma Opção -</option>
-                    </select>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label>Titulo:</label>
+                            <input type="text" class="form-control" placeholder="Título" ng-model="upModel.Titulo" />
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label>ISBN:</label>
+                            <input type="text" class="form-control" placeholder="ISBN" ng-model="upModel.ISBN" />
+                        </div>
+                    </div>
                 </div>
 
-                <br />
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label>Gênero:</label>
+                            <input type="text" class="form-control" placeholder="Gênero" ng-model="upModel.Genero" />
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label>Categoria:</label>
+                            <input type="text" class="form-control" placeholder="Categoria" ng-model="upModel.Categoria" />
+                        </div>
+                    </div>
+                </div>
 
+                <div class="row" ng-controller="livro-cadastro-controller">
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label>Selecione o Autor:</label>
+                            <select class="form-control" ng-model="upModel.AutorId" ng-options="a.IdAutor as a.Nome for a in autores">
+                                <option value="">- Escolha uma Opção -</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label>Selecione a Editora:</label>
+                            <select class="form-control" ng-model="upModel.EditoraId" ng-options="e.IdEditora as e.Nome for e in editoras">
+                                <option value="">- Escolha uma Opção -</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="form-group">
+                            <label>Sinopse:</label>
+                            <textarea class="form-control" placeholder="Sinopse" rows="3" ng-model="upModel.Sinopse"></textarea>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="modal-footer">
                 <button class="btn btn-success" ng-click="atualizar()" data-dismiss="modal">
