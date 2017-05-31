@@ -5,7 +5,6 @@ var app = angular.module('app', ['ngRoute']);
 
 //variavel para definir o dominio da api de serviços..
 //var url = "http://localhost:51558/";
-var url = "http://apilivreiro.azurewebsites.net/";
 
 //configurar as rotas..
 app.config
